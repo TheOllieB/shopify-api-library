@@ -1,22 +1,22 @@
 {
-  "name": "shopify-api-library",
-  "version": "1.0.0",
-  "description": "A library of functions built on the shopify-node-api package.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TheOllieB/shopify-api-library.git"
-  },
-  "author": "Ollie B",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/TheOllieB/shopify-api-library/issues"
-  },
-  "homepage": "https://github.com/TheOllieB/shopify-api-library#readme",
-  "dependencies": {
-    "shopify-node-api": "^1.11.1"
-  }
+	"name": "shopify-api-library",
+	"version": "1.0.0",
+	"description": "A library of functions built on the shopify-node-api package.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/TheOllieB/shopify-api-library.git"
+	},
+	"author": "Ollie B",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/TheOllieB/shopify-api-library/issues"
+	},
+	"homepage": "https://github.com/TheOllieB/shopify-api-library#readme",
+	"dependencies": {
+		"shopify-node-api": "^1.11.1"
+	}
 }
