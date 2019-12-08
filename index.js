@@ -101,7 +101,7 @@ const createGiftCard = giftCardObj => {
 };
 
 /**
- * @function getOrders
+ * @function getCustomerOrders
  * @param {number} customerId - Id of the customer to search for orders
  * @returns {object} data - returns customer orders data
  */
