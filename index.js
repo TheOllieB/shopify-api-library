@@ -143,12 +143,80 @@ const getSmartCollections = pageNo => {
 	});
 };
 
+/**
+ * @function updateCollectionPositions
+ * @param {array} productsArray - Array containing the variant ids in the position order required
+ * @param {number} collectionId - ID of the collection
+ * @returns {object} data - object contains the data of the uodated collection
+ */
+const updateCollectionPositions = (productsArray, collectionId) => {
+	return new Promise((resolve, reject) => {
+		Shopify.put(
+			`/admin/api/2019-04/smart_collections/${collectionId}/order.json`,
+			productsArray,
+			(err, data) => {
+				if (err) reject(err);
+				resolve(data);
+			}
+		);
+	});
+};
+
+/**
+ * @function getFulfilledShopifyOrder
+ * @param {number} orderId - Object containing the order details to create in Shopify
+ */
+const getFulfilledShopifyOrder = orderId => {
+	return new Promise((resolve, reject) => {
+		Shopify.get(
+			`/admin/api/2019-04/orders/${orderId}/fulfillments.json`,
+			(err, data) => {
+				if (err) {
+					console.log(err);
+					resolve(err);
+				} else {
+					resolve(data);
+				}
+			}
+		);
+	});
+};
+/**
+ * @function getCustomCollections
+ * @returns {array} - returns an array of objects containing collections data
+ */
+const getCustomCollections = () => {
+	return new Promise((resolve, reject) => {
+		Shopify.get(`/admin/custom_collections.json`, (err, data) => {
+			if (err) reject(err);
+			resolve(data);
+		});
+	});
+};
+/**
+ * @function createCollection
+ * @param {object} collection - The data of the collection to be created in Shopify
+ * @returns {object} - returns an object of the created collection data
+ */
+const createCollection = collection => {
+	return new Promise((resolve, reject) => {
+		Shopify.post(`/admin/custom_collections.json`, collection, (err, data) => {
+			if (err) reject(err);
+			resolve(data);
+		});
+	});
+};
+
 module.exports = {
 	getCustomerByEmail,
+	createCollection,
 	getCustomerOrders,
 	createGiftCard,
 	createOrder,
 	getSmartCollections,
 	addOrderNote,
-	auth
+	getFulfilledShopifyOrder,
+	auth,
+	updateCollectionPositions,
+	getCustomCollections
 };
