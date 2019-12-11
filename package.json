@@ -10,6 +10,9 @@
 		"type": "git",
 		"url": "git+https://github.com/TheOllieB/shopify-api-library.git"
 	},
+	"keywords": [
+		"Shopify"
+	],
 	"author": "Ollie B",
 	"license": "MIT",
 	"bugs": {
