@@ -70,10 +70,13 @@ const addOrderNote = (orderNote, orderId) => {
  */
 const getCustomerByEmail = email => {
 	return new Promise((resolve, reject) => {
-		Shopify.get(`/admin/customers/search.json?query=${email}`, (err, data) => {
-			if (err) reject(err);
-			resolve(data);
-		});
+		Shopify.get(
+			`/admin/customers/search.json?query=${email}`,
+			(err, data) => {
+				if (err) reject(err);
+				resolve(data);
+			}
+		);
 	});
 };
 
@@ -200,9 +203,26 @@ const getCustomCollections = () => {
  */
 const createCollection = collection => {
 	return new Promise((resolve, reject) => {
-		Shopify.post(`/admin/custom_collections.json`, collection, (err, data) => {
+		Shopify.post(
+			`/admin/custom_collections.json`,
+			collection,
+			(err, data) => {
+				if (err) reject(err);
+				resolve(data);
+			}
+		);
+	});
+};
+
+/**
+ * @function getProductCount - Find the number of products in the store
+ * @returns {Promise} Promise object represents the total number of products in the store
+ * */
+const getProductCount = async () => {
+	return new Promise((resolve, reject) => {
+		Shopify.get("/admin/products/count.json", (err, data) => {
 			if (err) reject(err);
-			resolve(data);
+			resolve(data.count);
 		});
 	});
 };
@@ -218,5 +238,6 @@ module.exports = {
 	getFulfilledShopifyOrder,
 	auth,
 	updateCollectionPositions,
-	getCustomCollections
+	getCustomCollections,
+	getProductCount
 };
