@@ -98,3 +98,9 @@ POST
 param {object} collection - The data of the collection to be created in Shopify
 
 returns {object} - returns an object of the created collection data
+
+##### function getProductCount - Find the number of products in the store
+
+GET
+
+returns {Promise} Promise object represents the total number of products in the store
